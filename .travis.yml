@@ -3,7 +3,7 @@ services:
   - docker
 
 before_install:
-  - docker build -t dockersrana/react-test -f ./client/Dockerfile.dev
+  - docker build -t dockersrana/react-test -f ./client/Dockerfile.dev ./client
 
 script:
   - docker run dockersrana/react-test npm test -- --coverage
