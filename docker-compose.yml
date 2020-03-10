@@ -16,15 +16,15 @@ services:
       dockerfile: Dockerfile.dev
       context: ./server
     volumes:
-      - /app/node_modules
-      - ./server:/app
+      - /app/node_modules #any time access any folder inside container app folder except node_modules
+      - ./server:/app     #any change in main folder auto refresh.
     environment:
       - REDIS_HOST=redis
       - REDIS_PORT=6379
       - PGUSER=postgres
       - PGHOST=postgres
       - PGDATABASE=postgres
-      - PGPASSWORD=postgres_user
+      - PGPASSWORD=postgres_password
       - PGPORT=5432
   client:
     build:
